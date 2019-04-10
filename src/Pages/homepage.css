@@ -1,10 +1,18 @@
 .container {
-  max-width: 500px;
   margin: 0 auto;
   font-family: 'Fira Sans', sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 30px;
 }
 
-.title{
+.container section {
+  width: 33%;
+  margin: 0 10px;
+}
+
+.title {
   color: #555;
 }
 

@@ -38,7 +38,7 @@ class TodoService {
 
   async updateTodo(id, todo){
     try {
-      const updateTodo = await this.todo.put(`/todos/${id}`,{todo})
+      const updateTodo = await this.todo.put(`/todos/${id}`,todo)
       return updateTodo.data;
     } catch (error) {
       return error;
