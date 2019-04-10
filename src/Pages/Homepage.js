@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import RenderList from '../Components/RenderList';
 import FormTodo from '../Components/FormTodo';
 import todoService from '../lib/todo-service';
-
+import CardTodo from '../Components/CardTodo/CardTodo';
 class Homepage extends Component {
 
   state = {
@@ -22,17 +21,32 @@ class Homepage extends Component {
     }
   }
 
-  todoList(list) {
+  deleteTodo = async (id) =>{
+    try {
+      await todoService.deleteTodo(id);
+      const newTodoList = this.state.todoList.filter((todo)=>{
+        return todo._id !== id
+      })
+      this.setState({
+        todoList:newTodoList
+      })
+    } catch (error) {
+    }
+  }
+
+  todoList() {
     return this.state.todoList.map((todo, id) => {
-      const {title,body} = todo;
       return (
-        <li>{title} - {body}</li>
+        <CardTodo 
+          key={`id-${id}`}
+          todo={todo}
+          deleteTodo={this.deleteTodo}
+        />
       )
     })
   }
 
   addTodoList = (newTodo) => {
-    console.log(newTodo);
     this.setState({
       todoList: [...this.state.todoList,newTodo]
     })
