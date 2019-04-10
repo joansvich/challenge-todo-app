@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import todoService from '../lib/todo-service';
+import todoService from '../../lib/todo-service';
+import './formtodo.css';
 
 class FormTodo extends Component {
 
@@ -24,7 +25,7 @@ class FormTodo extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container-form-todo">
         <form onSubmit={this.handleFormSubmit}>
           <input type="text" onChange={this.handleChange} name="title" placeholder="Titulo" />
           <input type="text" onChange={this.handleChange} name="body" placeholder="Descripcion" />

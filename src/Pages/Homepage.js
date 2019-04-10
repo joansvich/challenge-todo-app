@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import FormTodo from '../Components/FormTodo';
+import FormTodo from '../Components/FormTodo/FormTodo';
 import todoService from '../lib/todo-service';
 import CardTodo from '../Components/CardTodo/CardTodo';
+import './homepage.css'
+
 class Homepage extends Component {
 
   state = {
@@ -12,7 +14,6 @@ class Homepage extends Component {
   componentDidMount = async () => {
     try {
       const todoList = await todoService.getAllTodos();
-      console.log(todoList);
       this.setState({
         todoList,
         isLoading: false
@@ -55,11 +56,12 @@ class Homepage extends Component {
   render() {
     const list = todoService.getAllTodos()
     return (
-      <div>
-        <h1>Homepage</h1>
-        <ul>
+      <div className="container">
+        <h1 className="title">To-do List</h1>
+        <ul className="list-Todo">
           {this.state.isLoading ? <p>Cargando...</p> : this.todoList(list)}
         </ul>
+        <h1 className="title">Añadir Todo</h1>
         <FormTodo 
           addTodoList={this.addTodoList}
         />

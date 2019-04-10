@@ -10,3 +10,44 @@
   align-items: center;
   padding: 0 15px;
 }
+
+.container-card-todo h1{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.container-card-todo p{
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.card-todo-buttons{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-todo-buttons button{
+  width: 40px;
+  padding: 4px;
+  margin: 4px;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: #666;
+  outline: none;
+  cursor: pointer;
+}
+.card-todo-buttons button:hover{
+  color: white;
+  background-color: #666;
+}
+
+.card-todo-buttons .delete{
+  background-color: #fff0f0;
+}
+
+.card-todo-buttons .edit{
+  background-color: #f0fff2;
+}
