@@ -58,7 +58,6 @@ class Homepage extends Component {
       this.setState({
         todoList: newTodoList
       })
-
     } catch (error) {
     }
   }
